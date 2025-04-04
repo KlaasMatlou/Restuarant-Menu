@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KO GAE EATERY - Menu</title>
+        <style>
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            body {
+                background-color: #f1ecec;
+                color: #333333;
+                line-height: 1.6;
+            }
+
+            header {
+                background-color: #2c3e50;
+                color: white;
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+
+            .restaurant-name {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+                font-family: 'Georgia', serif;
+            }
+
+            .tagline {
+                font-style: italic;
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                padding: 0.5rem 0;
+            }
+
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+            nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+            nav ul li a:hover {
+                color: #e74c3c;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 2rem auto;
+                padding: 0 20px;
+            }
+
+            .menu-section {
+                margin-bottom: 3rem;
+            }
+
+            .section-title {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                color: #2c3e50;
+                position: relative;
+            }
+
+            .section-title::after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 3px;
+                background-color: #e74c3c;
+                margin: 0.5rem auto;
+            }
+
+            .menu-items {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+
+            .menu-item {
+                background-color: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+            .menu-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            .item-image {
+                height: 200px;
+                background-color: #ddd;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .item-info {
+                padding: 1.5rem;
+            }
+
+            .item-name {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+                color: #2c3e50;
+            }
+
+            .item-description {
+                color: #666;
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .item-price {
+                font-weight: bold;
+                color: #d42929;
+                font-size: 1.1rem;
+            }
+
+            .special-tag {
+                background-color: #e74c3c;
+                color: white;
+                padding: 0.2rem 0.5rem;
+                border-radius: 4px;
+                font-size: 0.8rem;
+                margin-left: 0.5rem;
+            }
+
+            form {
+            padding: 10px;
+            text-align:left;
+            font-size: larger;
+            justify-content: space-evenly;
+            width: 200px;
+
+            }
+
+            input {
+                border-radius: 15px;
+                border-width: 2px;
+                border: 3px solid rgb(182, 184, 178);
+            }
+
+            textarea {
+                border-radius: 15px;
+                border-width: 2px;
+                border: 3px solid rgb(182, 184, 178);
+            }
+
+            .note {
+                color: rgb(65, 136, 184);
+                font-size: 1.5em;
+            }
+
+            footer {
+                background-color: #2c3e50;
+                color: white;
+                text-align: center;
+                padding: 2rem 0;
+                margin-top: 2rem;
+            }
+
+            .footer-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                text-align: left;
+                padding: 0 20px;
+            }
+
+            .footer-section h3 {
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+            }
+
+            .footer-section p {
+                margin-bottom: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+
+            @media (max-width: 768px) {
+                .menu-items {
+                    grid-template-columns: 1fr;
+                }
+                
+                nav ul {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                
+                .restaurant-name {
+                    font-size: 2rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1 class="restaurant-name">REA VAYA EATERY</h1>
+            <p class="tagline">Food on the GO</p>
+            <nav>
+                <ul>
+                    <li><a href="#Meals" class="active">Meals</a></li>
+                    <li><a href="#Drinks" class="active">Drinks</a></li>
+                    <li><a href="#conact us section" class="active">Place Your Order Here</a></li>
+                </ul>
+             </nav>
+        </header>
+
+        <div class="container">
+            <section id="Meals" class="menu-section">
+                <h2 class="section-title">Meals</h2>
+                <div class="menu-items">
+
+                    <div class="menu-item"><a href="meals/K50.jpg">
+                        <div class="item-image" style="background-image: url(meals/K50.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Kota <span class="special-tag">Chef's Choice</span></h3>
+                            <p class="item-description">Cheese, Russian, Vienna, Polony, Atchaar, Eggs, burger patty</p>
+                            <p class="item-price">R50.00</p>
+                        </div></a>
+                    </div>
+
+
+                    <div class="menu-item"><a href="meals/B-50.jpg">
+                        <div class="item-image" style="background-image: url(meals/B-50.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Beef Burger</h3>
+                            <p class="item-description">Double Cheese, beef burger, cucumber, onion, lettuce, tomato. with chips</p>
+                            <p class="item-price">R55.00</p>
+                        </div></a>
+                    </div>
+                        
+                    <div class="menu-item"><a href="meals/B-cd-50.jpg">
+                        <div class="item-image" style="background-image: url(meals/B-cd-50.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Chicken Burger</h3>
+                            <p class="item-description">Chicken fillet, pickled cucumber, onion, lettuce, tomato, cheese. with 330ml Soft drink</p>
+                            <p class="item-price">R55.00</p>
+                        </div></a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="meals/B-W-150.jpg">
+                        <div class="item-image" style="background-image: url(meals/B-W-150.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Wing Burger</h3>
+                            <p class="item-description">Two wings, Beef burger, pickled cucumber, onion, Tomato, bacon, cheese, lettuce, with regular chips</p>
+                            <p class="item-price">R80.00</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="meals/Beef-stew.jpg">
+                        <div class="item-image" style="background-image: url(meals/Beef-stew.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">500G Beef Stew</h3>
+                            <p class="item-description">Tender, well cooked traditional home beef stew, Free 100g Pap</p>
+                            <p class="item-price">R200.00</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="meals/Dumbling-meal.jpg">
+                        <div class="item-image" style="background-image: url(meals/Dumbling-meal.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Dombolo meal</h3>
+                            <p class="item-description">3 slices of Dumbling, butternut, spinach, and beef stew</p>
+                            <p class="item-price">R80.00</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="meals/Meatery-150.jpg">
+                        <div class="item-image" style="background-image: url(meals/Meatery-150.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Inyama Meatery</h3>
+                            <p class="item-description">6 drum stics, 3 Pork ribs, 6 pepper and steak samoosa, 6 wings, 6 sticky grilled meatballs</p>
+                            <p class="item-price">R200.00</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="meals/Platter-for-7.jpg">
+                        <div class="item-image" style="background-image: url(meals/Platter-for-7.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Molleko Platter for 8 "from Nigeria"</h3>
+                            <p class="item-description">Crispy fried chicken, Jollof rice, a flavourful one-pot dish, fried rice with mixed veggies, Moi Moi, Fried plantains, pounded yam, salads and fruits, small chops, bread and waffles.</p>
+                            <p class="item-price">R500.OO</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="meals/Samp.jpg">
+                        <div class="item-image" style="background-image: url(meals/Samp.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Traditional Stamp</h3>
+                            <p class="item-description">Stamp with soybeans</p>
+                            <p class="item-price">R40.00</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="meals/Rice-on-the-Go.jpg">
+                        <div class="item-image" style="background-image: url(meals/Rice-on-the-Go.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">Rice on the Go</h3>
+                            <p class="item-description">Yellow rice, 1 chicken drum stick, milky spinach, chakalaka, beef Stew</p>
+                            <p class="item-price">R60.00</p>
+                        </div>
+                        </a>
+                    </div>
+                    
+                </div>    
+                    
+            </section>
+
+            <section id="Drinks" class="menu-section">
+                <h2 class="section-title">Drinks</h2>
+                <div class="menu-items">
+
+                    <div class="menu-item"><a href="Drinks/440ml-coke.jpg">
+                        <div class="item-image" style="background-image: url(Drinks/440ml-coke.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">440ml Coke<span class="special-tag">Helps U digest fast</span></h3>
+                            <p class="item-price">R20.00</p>
+                        </div></a>
+                    </div>
+
+
+                    <div class="menu-item"><a href="Drinks/330ml-minutemaid-assorted.jpg">
+                        <div class="item-image" style="background-image: url(Drinks/330ml-minutemaid-assorted.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">330ml-Minutemaid-assorted</h3>
+                            <p class="item-price">R22.00</p>
+                        </div></a>
+                    </div>
+                        
+                    <div class="menu-item"><a href="Drinks/330ml-minutemaid-berryblend.jpg">
+                        <div class="item-image" style="background-image: url(Drinks/330ml-minutemaid-berryblend.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">330ml-minutemaid-berryblend</h3>
+                            <p class="item-price">R25.00</p>
+                        </div></a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="Drinks/330ml-cocacola-assorted.jpg">
+                        <div class="item-image" style="background-image: url(Drinks/330ml-cocacola-assorted.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">330ml-cocacola-assorted</h3>
+                            <p class="item-price">R14.00</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="Drinks/750ml-water.jpg">
+                        <div class="item-image" style="background-image: url(Drinks/750ml-water.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">750ml-Spring-water</h3>
+                            <p class="item-price">R10.00</p>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="menu-item">
+                        <a href="Drinks/softdrinks.jpg">
+                        <div class="item-image" style="background-image: url(Drinks/softdrinks.jpg);"></div>
+                        <div class="item-info">
+                            <h3 class="item-name">softdrinks</h3>
+                            <p class="item-description">Fridge to clear, All items are R10.00 each, <big>While stock lasts</big></p>
+                            <p class="item-price">R10.00 each</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+            
+        <p class="note">Feel free to call us@:+27720724950 or you can place your order below.<br>
+        All orders are payable upon delivery</p>
+        <form id="conact us section" action="https://api.web3forms.com/submit" method="POST">
+
+            <input type="hidden" name="access_key" value="0594956e-f5a9-434b-95f4-2c23525082fe">
+            <label for="name">name:</label>
+            <input type="text" name="name" placeholder="Your name" required><br>
+
+            <label for="email">email:</label>
+            <input type="email" name="email" placeholder="Your email" required><br>
+
+            <label for="phone #">phone</label>
+            <input type="phone #" id="phone" placeholder="optional"><br>
+
+            <label for="comment">Order</label>
+            <textarea name="message" rows="4" col=25></textarea><br>
+
+            <input type="reset"><br>
+            <input type="submit"><br>
+
+        </form>
+
+        <footer>
+            <p>Food on the Go</p>
+            26 Kerk street, Polokwane, Limpopo 0745
+            <a href="mailto: tshupianematlou@gmail.com">tshupianematlou@gmail.com</a>
+        </footer>
+    </body>
+</html>
+
